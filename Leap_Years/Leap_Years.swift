@@ -30,6 +30,51 @@ class Leap_Years {
         return result
     }
     
+    func findClosestLeapYear(year: Int) -> Int {
+        if checkIfLeapYear(year: year)
+        {
+            return year
+        }
+        else if checkIfLeapYear(year: year + 1)
+        {
+            return year + 1
+        }
+        else if checkIfLeapYear(year: year - 1)
+        {
+            return year - 1
+        }
+        else if checkIfLeapYear(year: year + 2)
+        {
+            return year + 2
+        }
+        else if checkIfLeapYear(year: year - 2)
+        {
+            return year - 2
+        }
+        else if checkIfLeapYear(year: year + 3)
+        {
+            return year + 3
+        }
+        else if checkIfLeapYear(year: year - 3)
+        {
+            return year - 3
+        }
+        else
+        {
+            return year + 4
+        }
+    }
+    
 }
 
 // TDD Extension 1: Write a program that takes a start year and an end year and returns an array of all the leap years between.
+// TDD Extension 2: Write a program that when given a year, will return the closest leap year (this could be before or after the given year)
+
+// Logic for method findClosestLeapYear: take initial number and:
+// add 1 => run checkIfLeapYear, if true stop and return the year
+// remove 1 => run checkIfLeapYear, if true stop and return the year
+// add 2 => run checkIfLeapYear, if true stop and return the year
+// remove 2 => run checkIfLeapYear, if true stop and return the year
+// add 3 => run checkIfLeapYear, if true stop and return the year
+// remove 3 => run checkIfLeapYear, if true stop and return the year
+// add 4 and return the year

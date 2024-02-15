@@ -44,7 +44,19 @@ final class Leap_YearsTests: XCTestCase {
         // Assert
         XCTAssertTrue(result1 == [false, true, false])
     }
+    
+    func testIfFindsClosestLeapYear() {
+        // Arrange
+        let leap_year = Leap_Years()
+        
+        // Act
+        let result1 = leap_year.findClosestLeapYear(year: 2015)
+
+        // Assert
+        XCTAssertTrue(result1 == 2016)
+    }
 
 }
 
 // TDD Extension 1: Write a program that takes a start year and an end year and returns an array of all the leap years between.
+// TDD Extension 2: Write a program that when given a year, will return the closest leap year (this could be before or after the given year)
