@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var inputYear = ""
+    @State private var inputYear2 = ""
     @State private var startYear = ""
     @State private var endYear = ""
     @State private var leapYearResults = [String]()
@@ -74,6 +75,30 @@ struct ContentView: View {
             .padding(.vertical, 0)
             .padding(.horizontal, 15)
             
+            Text("Or find closest leap year:")
+                .bold()
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 0)
+                .padding(.horizontal, 15)
+            
+            HStack {
+                TextField("Start year", text: $inputYear2)
+                    .padding(0)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Button("Check") {
+                    findClosestLeapYear()
+                }
+                .padding(8)
+                .background(Color.green)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+            }
+            .padding(.vertical, 0)
+            .padding(.horizontal, 15)
+            
             List(leapYearResults, id: \.self) { result in
                 Text(result)
             }
@@ -98,6 +123,7 @@ struct ContentView: View {
         } else {
             prependResult("\(year) is NOT a leap year.")
         }
+        inputYear = ""
     }
     
     private func checkLeapYearsInRange() {
@@ -113,6 +139,26 @@ struct ContentView: View {
             let resultString = "\(year) is \(isLeapYear ? "" : "NOT ")a leap year."
             prependResult(resultString)
         }
+        startYear = ""
+        endYear = ""
+    }
+    
+    private func findClosestLeapYear() {
+        guard let year = Int(inputYear2) else {
+            prependResult("Please enter a valid year.")
+            return
+        }
+        
+        let leapYears = Leap_Years()
+        let result = leapYears.findClosestLeapYear(year: year)
+        if result == year {
+            prependResult("\(year) is a leap year.")
+        }
+        else
+        {
+            prependResult("\(year): - Closest leap year is \(result).")
+        }
+        inputYear2 = ""
     }
     
     private func prependResult(_ result: String) {

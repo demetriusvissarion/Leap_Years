@@ -43,28 +43,11 @@ class Leap_Years {
         {
             return year - 1
         }
-        else if checkIfLeapYear(year: year + 2)
+        else
         {
             return year + 2
         }
-        else if checkIfLeapYear(year: year - 2)
-        {
-            return year - 2
-        }
-        else if checkIfLeapYear(year: year + 3)
-        {
-            return year + 3
-        }
-        else if checkIfLeapYear(year: year - 3)
-        {
-            return year - 3
-        }
-        else
-        {
-            return year + 4
-        }
     }
-    
 }
 
 // TDD Extension 1: Write a program that takes a start year and an end year and returns an array of all the leap years between.
