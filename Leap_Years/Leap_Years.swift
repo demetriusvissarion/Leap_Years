@@ -22,6 +22,14 @@ class Leap_Years {
         }
     }
     
+    func checkIfLeapYearsInRange(start_year: Int, end_year: Int) -> [Bool] {
+        var result = [Bool]()
+        for year in start_year...end_year {
+            result.append(checkIfLeapYear(year: year))
+        }
+        return result
+    }
+    
 }
 
-// Write a program that takes a start year and an end year and returns an array of all the leap years between.
+// TDD Extension 1: Write a program that takes a start year and an end year and returns an array of all the leap years between.

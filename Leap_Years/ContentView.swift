@@ -18,7 +18,7 @@ struct ContentView: View {
             
             Image("homepage1")
                 .resizable()
-                .frame(width: .infinity, height: 200.0)
+                .frame(width: UIScreen.main.bounds.width, height: 200)
             
             HStack {
                 TextField("Add a year to check", text: $inputYear)

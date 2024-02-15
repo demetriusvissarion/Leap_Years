@@ -11,7 +11,7 @@ import XCTest
 final class Leap_YearsTests: XCTestCase {
 
     // Test behaviour of checkIfLeapYear func
-    func testLeap_Years() {
+    func testIfLeapYear() {
         // Arrange
         let leap_year = Leap_Years()
         
@@ -29,6 +29,22 @@ final class Leap_YearsTests: XCTestCase {
         XCTAssertTrue(result4) // sould return true
         XCTAssertFalse(result5) // sould return false
     }
+    
+    // Test behaviour of checkIfLeapYearsInRange func
+    func testIfLeapYearsInRange() {
+        // Arrange
+        let leap_year = Leap_Years()
+        
+        // Act
+        let result1 = leap_year.checkIfLeapYearsInRange(
+            start_year: 2015,
+            end_year: 2017
+        )
+
+        // Assert
+        XCTAssertTrue(result1 == [false, true, false])
+    }
 
 }
 
+// TDD Extension 1: Write a program that takes a start year and an end year and returns an array of all the leap years between.
