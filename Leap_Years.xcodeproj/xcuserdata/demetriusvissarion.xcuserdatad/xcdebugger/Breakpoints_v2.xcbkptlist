@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "2E302673-7A2D-4B37-9B18-1C5D437EC030"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE526D04-1F18-435D-ACF4-89BD480D5D24"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Leap_Years/Leap_Years.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "checkIfLeapYear(year:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BE526D04-1F18-435D-ACF4-89BD480D5D24 - ffd472ac1d0fd676"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Leap_Years.Leap_Years.checkIfLeapYear(year: Swift.Int) -&gt; Swift.Bool"
+                  moduleName = "Leap_Years"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/demetriusvissarion/Desktop/Projects/swiftUI_exercises/Leap_Years/Leap_Years/Leap_Years.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "BE526D04-1F18-435D-ACF4-89BD480D5D24 - ffd472ac1d0fd676"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Leap_Years.Leap_Years.checkIfLeapYear(year: Swift.Int) -&gt; Swift.Bool"
+                  moduleName = "Leap_Years"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/demetriusvissarion/Desktop/Projects/swiftUI_exercises/Leap_Years/Leap_Years/Leap_Years.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
