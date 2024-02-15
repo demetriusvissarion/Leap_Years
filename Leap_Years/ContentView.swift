@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var inputYear = ""
+    @State private var startYear = ""
+    @State private var endYear = ""
     @State private var leapYearResults = [String]()
     
     var body: some View {
@@ -20,12 +22,18 @@ struct ContentView: View {
                 .resizable()
                 .frame(width: UIScreen.main.bounds.width, height: 200)
             
+            Text("Enter a year to check:")
+                .bold()
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 0)
+                .padding(.horizontal, 15)
+            
             HStack {
                 TextField("Add a year to check", text: $inputYear)
-                    .padding()
+                    .padding(0)
                     .keyboardType(.numberPad)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
                 
                 Button("Check") {
                     checkLeapYear()
@@ -35,11 +43,40 @@ struct ContentView: View {
                 .foregroundColor(.white)
                 .cornerRadius(10)
             }
-            .padding(.trailing, 30)
+            .padding(.vertical, 0)
+            .padding(.horizontal, 15)
+            
+            Text("Or check a range of years:")
+                .bold()
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.vertical, 0)
+                .padding(.horizontal, 15)
+            
+            HStack {
+                TextField("Start year", text: $startYear)
+                    .padding(0)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("End year", text: $endYear)
+                    .padding(0)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Button("Check") {
+                    checkLeapYearsInRange()
+                }
+                .padding(8)
+                .background(Color.green)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+            }
+            .padding(.vertical, 0)
+            .padding(.horizontal, 15)
+            
             List(leapYearResults, id: \.self) { result in
                 Text(result)
             }
-            
             
             Spacer()
         }
@@ -47,10 +84,6 @@ struct ContentView: View {
         .background(Color.blue.opacity(0.7))
         .padding(.horizontal, 0)
         .padding(.vertical, 0)
-        
-        HStack {
-            
-        }
     }
     
     private func checkLeapYear() {
@@ -64,6 +97,21 @@ struct ContentView: View {
             prependResult("\(year) is a leap year.")
         } else {
             prependResult("\(year) is NOT a leap year.")
+        }
+    }
+    
+    private func checkLeapYearsInRange() {
+        guard let start = Int(startYear), let end = Int(endYear), start <= end else {
+            prependResult("Please enter valid start and end years, where the start year is less than or equal to the end year.")
+            return
+        }
+        
+        let leapYears = Leap_Years()
+        let results = leapYears.checkIfLeapYearsInRange(start_year: start, end_year: end)
+        for (index, year) in (start...end).enumerated() {
+            let isLeapYear = results[index]
+            let resultString = "\(year) is \(isLeapYear ? "" : "NOT ")a leap year."
+            prependResult(resultString)
         }
     }
     
